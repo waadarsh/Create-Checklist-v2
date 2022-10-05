@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Checklist</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <h2>Create new Checklist template</h2>
+
+    <div class = "checklist-container">
+
+        <div class = "checklist-header-container">
+            <div class = "checklist-name-container">
+                <label for="checklist-name-input">TEMPLATE NAME</label>
+                <input type="text" class = "checklist-name-input" id = "checklist-name-input" class = "checklist-name-input" value = "   Type here">
+            </div>
+            <div class = "station-name-container">
+                <label for="station-name-input">STATION NAME</label>
+                <input type="text" class = "station-name-input" id = "station-name-input" class = "station-name-input" value="   Type here">
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "component-panel-container">
+        <h3>Component Tray</h3>
+    </div>
+
+    <div class="add-work-instruction">
+        <button class="add-work-instruction-button" id="add-work-instruction">Add</button>
+    </div>
+
+    <div class = "publish-json-container">
+        <button class = "publish-button" id = "publish-button">Get JSON</button>
+    </div>
+
+    <script src="./app.js" type="module"></script>
+    <script src="./checklistContainer.js" type="module"></script>
+    <script src="./component.js" type="module"></script>
+    <script src = "./createjson.js" type="module"></script>
+    
+</body>
+</html>
