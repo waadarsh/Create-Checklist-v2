@@ -54,7 +54,7 @@ class ChecklistContainer {
         input.setAttribute("id", "processNameInput" + this.index);
         input.setAttribute("type", "text");
         input.classList.add("process-name-input");
-        input.value = "   Type here";
+        input.placeholder = "   Type here";
         processNameContainer.appendChild(input);
 
         this.createCheckLocationContainer();
@@ -78,7 +78,7 @@ class ChecklistContainer {
         input.setAttribute("id", "checkLocationInput" + this.index);
         input.setAttribute("type", "text");
         input.classList.add("check-location-input");
-        input.value = "   Type here";
+        input.placeholder = "   Type here";
         checkLocationContainer.appendChild(input);
 
         this.createInstructionNoContainer();
@@ -129,7 +129,7 @@ class ChecklistContainer {
         input.setAttribute("id", "checkDetailsInput" + this.index);
         input.setAttribute("type", "text");
         input.classList.add("check-details-input");
-        input.value = "   Type here";
+        input.placeholder = "   Type here";
         checkDetailsContainer.appendChild(input);
 
         this.createWorkAreaContainer();
