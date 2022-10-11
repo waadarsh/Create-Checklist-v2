@@ -3,6 +3,7 @@ class ChecklistContainer {
     stationName;
     index;
     totalNoOfInstruction;
+    
 
     constructor() {
         this.checklistContainer = document.querySelector(".checklist-container");
@@ -146,6 +147,7 @@ class ChecklistContainer {
         imageContainer.setAttribute("id", "imageContainer" + this.index);
         workAreaContainer.appendChild(imageContainer);
         imageContainer.classList.add("image-container");
+       
         imageContainer.addEventListener("dragover", (Event) => {
             this.handleDragOver(Event);
         });
@@ -225,7 +227,7 @@ class ChecklistContainer {
         for(let i = 0; i < revContainerName.length; i++)
         {
             if(revContainerName[i].match(/[0-9]/) === null)
-            {break;}
+                {break;}
             revStr.push(revContainerName[i]);
         }
         //console.log(revStr.toString());
@@ -266,8 +268,9 @@ class ChecklistContainer {
 
         if(sourceElement === "&gt;_Input Field") {
             if(inputField1Component === null) {
-                const div = document.createElement("div");
-                div.classList.add("input-field1-component");
+                const div = document.createElement("div"); 
+                // // div.classList.add("hover-div");
+                // // div.setAttribute("draggable", "true");
                 div.setAttribute("id", "inputField1Component" + index);
                 const label = document.createElement("p");
                 label.setAttribute("id", "inputField1Label" + index);
@@ -277,18 +280,91 @@ class ChecklistContainer {
                 input.setAttribute("id", "inputField1Input" + index);
                 input.setAttribute("type", "text");
                 input.style.width = "13ch";
+                div.classList.add("input-field1-component");
+
+
+                div.addEventListener("mouseenter", (Event) =>{
+                    console.log(Event.target);
+                    if(document.getElementById("delete1"+index)===null){
+                        const del = document.createElement("a");
+                        del.setAttribute("id","delete1" + index);
+                        //del.setAttribute("type","button");
+                        del.setAttribute("style", 'margin-right: 2rem');
+                        del.innerHTML += '<i class="material-icons">delete</i>';
+                        div.appendChild(del);
+                        del.onclick = function(){
+                           // //const del = document.getElementById("inputField1Container" + index);
+                            inputField1Container.innerHTML='';
+                        }
+                    }
+                    if(document.getElementById("edit1"+index)===null) {
+                        // //console.log(document.getElementById("edit1"+index));
+                        const edit1 = document.createElement("a");
+                        edit1.setAttribute("id","edit1" + index);
+                        edit1.innerHTML += '<span class="material-icons">edit</span>';
+                        div.appendChild(edit1);
+                        edit1.onclick = function(){
+                            var x = document.getElementById("edit");
+                            x.style.display = "block"
+                            const he3 = document.createElement("h3");
+                            he3.innerHTML = "<h3>Edit</h3>"
+                            const inp = document.createElement("input");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("id","txt");
+                            const button = document.createElement("button");
+                            button.setAttribute("id", "icn");
+                            button.innerHTML += '<span class="material-symbols-outlined">check_circle</span>';
+                                button.onclick = function () {
+                                x.style.display = "none";
+                                var val = document.getElementById("txt").value;
+                                label.innerHTML = val;
+                                x.innerHTML="";
+                            }
+                            x.appendChild(he3);
+                            x.appendChild(inp);
+                            x.appendChild(button);
+                        }
+                    }
+                    console.log(document.getElementById("edit1"+index).value);
+                });
+
+
+                // // const del_div = document.createElement("div");
+                // // del_div.classList.add("icon");
+                // // const del = document.createElement("button");
+                // // del.innerHTML += '<span class="material-icons">delete</span>';
+                // // del.onclick = function(){
+                // //     //const del = document.getElementById("inputField1Container" + index);
+                // //     inputField1Container.innerHTML='';
+                // // }
+                // // del_div.appendChild(del);
+                // // hdiv.appendChild(del_div);
+
+                // // div.addEventListener("dragstart", function(Event) {
+                // //     alert(Event.currentTarget.id);
+                // //     Event.currentTarget.style.opacity = 0.4;
+                // //     Event.dataTransfer.effectAllowed = "move";
+                // // });
                 div.appendChild(label);
                 div.appendChild(input);
                 Event.target.appendChild(div);
-                //Event.target.appendChild(input);
-                //console.log(inputField1Container.classList);
                 inputField1Container.classList.remove("over");
-                //console.log(inputField1Container.classList);
-                //comp = document.querySelectorAll(".input-field1-component");
-                //console.log("Component lenght" + comp.length);
+                
+                // // Event.target.appendChild(input);
+                // // console.log(inputField1Container.classList);
+                // // console.log(inputField1Container.classList);
+                // // comp = document.querySelectorAll(".input-field1-component");
+                // // console.log("Component lenght" + comp.length);
             }
         }
     }
+
+    // // hovermouse(){
+    // //     console.log("inside hover");
+    // //     console.log(this.index);
+    // //     const inputField1Component = document.getElementById("inputField1Component" + this.index);
+    // //     inputField1Component.style.color = "red";
+    // // }
 
     handleInputField2Drop(Event) {
         Event.stopPropagation();
@@ -299,6 +375,7 @@ class ChecklistContainer {
         let inputField2Container = document.getElementById("inputField2Container" + index);
 
         if(sourceElement === "&gt;_Input Field") {
+            console.log(inputField2Component);
             if(inputField2Component === null) {
                 const div = document.createElement("div");
                 div.classList.add("input-field2-component");
@@ -312,15 +389,61 @@ class ChecklistContainer {
                 input.setAttribute("type", "text");
                 input.setAttribute("size", "10rem");
                 input.style.width = "13ch";
+
+                div.addEventListener("mouseenter", (Event) =>{
+                    console.log(Event.target);
+                    if(document.getElementById("delete2"+index)===null){
+                        const del1 = document.createElement("a");
+                        del1.setAttribute("id","delete2" + index);
+                        del1.setAttribute("style", 'margin-left: 0.5rem');
+                        del1.innerHTML += '<span class="material-icons">delete</span>';
+                        div.appendChild(del1);
+                        del1.onclick = function(){
+                          // //const del = document.getElementById("inputField1Container" + index);
+                            inputField2Container.innerHTML='';
+                        }
+                    }
+                    if(document.getElementById("edit2"+index)===null) {
+                       // //console.log(document.getElementById("edit2"+index));
+                        const edit2 = document.createElement("a");
+                        edit2.setAttribute("id","edit2" + index);
+                       //edit2.setAttribute("style", 'margin-right: 1rem');
+                        edit2.setAttribute("style", 'margin-left: 1rem');
+                        edit2.innerHTML += '<span class="material-icons">edit</span>';
+                        div.appendChild(edit2);
+                        edit2.onclick = function(){
+                            var x = document.getElementById("edit2");
+                            x.style.display = "block"
+                            const he3 = document.createElement("h3");
+                            he3.innerHTML = "<h3>Edit</h3>"
+                            const inp = document.createElement("input");
+                            inp.setAttribute("type", "text");
+                            inp.setAttribute("id","txt");
+                            const button = document.createElement("button");
+                            button.setAttribute("id", "icn");
+                            button.innerHTML += '<span class="material-symbols-outlined">check_circle</span>';
+                                button.onclick = function () {
+                                x.style.display = "none";
+                                var val = document.getElementById("txt").value;
+                                label.innerHTML = val;
+                                x.innerHTML="";
+                            }
+                            x.appendChild(he3);
+                            x.appendChild(inp);
+                            x.appendChild(button);
+                        }
+                    }
+                    console.log(document.getElementById("edit2"+index).value);
+                });
                 div.appendChild(label);
                 div.appendChild(input);
                 Event.target.appendChild(div);
-                //Event.target.appendChild(input);
-                //console.log(inputField1Container.classList);
+               // //Event.target.appendChild(input);
+               // //console.log(inputField1Container.classList);
                 inputField2Container.classList.remove("over");
-                //console.log(inputField1Container.classList);
-                //comp = document.querySelectorAll(".input-field1-component");
-                //console.log("Component lenght" + comp.length);
+               // //console.log(inputField1Container.classList);
+               // //comp = document.querySelectorAll(".input-field1-component");
+               // //console.log("Component lenght" + comp.length);
             }
         }
 
@@ -358,6 +481,14 @@ class ChecklistContainer {
             ngButton.addEventListener("click", function(Event) {
                 Event.preventDefault();
             });
+
+            const del2 = document.createElement("button");
+           // //del1.setAttribute("id", "deleteicon" + index);
+            del2.innerHTML += '<i class="material-icons">delete</i>';
+            del2.onclick = function(){
+                judgementContainer.innerHTML='';
+            }
+            judgementComponent.appendChild(del2);
         }
     }
 }

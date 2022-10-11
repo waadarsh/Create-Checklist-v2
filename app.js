@@ -42,6 +42,8 @@ addWorkInstructionButton.addEventListener("click", function() {
     checklistContainerObj.addWorkInstruction();
 });
 
+
+
 //const createJSONObj = new CreateJSON(checklistContainerObj.templateName, checklistContainerObj.stationName, checklistContainerObj.totalNoOfInstruction);
 //console.log(createJSONObj.jsonText);
 let createJSONObj = null;
