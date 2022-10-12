@@ -14,7 +14,7 @@ class Component {
     handleDragStart(Event) {
         this.componentObj.style.opacity = 0.4;
         Event.dataTransfer.effectAllowed = "move";
-        Event.dataTransfer.setData("text/html", this.componentObj.innerHTML);
+        Event.dataTransfer.setData("text/plain", this.componentObj.innerHTML);
         //console.log(this.componentObj.innerHTML);
     }
 

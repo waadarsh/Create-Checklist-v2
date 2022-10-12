@@ -242,7 +242,7 @@ class ChecklistContainer {
 
     handleImageDrop(Event) {
         Event.stopPropagation();
-        let sourceElement = Event.dataTransfer.getData("text/html");
+        let sourceElement = Event.dataTransfer.getData("text");
         let imageContainerText = Event.target.id.toString();
         let index = this.getCurrentIndex(imageContainerText);
         let imageComponent = document.getElementById("imageComponent" + index);
@@ -260,7 +260,7 @@ class ChecklistContainer {
 
     handleInputField1Drop(Event) {
         Event.stopPropagation();
-        let sourceElement = Event.dataTransfer.getData("text/html");
+        let sourceElement = Event.dataTransfer.getData("text");
         let inputField1ContainerText = Event.target.id.toString();
         let index = this.getCurrentIndex(inputField1ContainerText);
         let inputField1Component = document.getElementById("inputField1Component" + index);
@@ -368,7 +368,7 @@ class ChecklistContainer {
 
     handleInputField2Drop(Event) {
         Event.stopPropagation();
-        let sourceElement = Event.dataTransfer.getData("text/html");
+        let sourceElement = Event.dataTransfer.getData("text");
         let inputField2ContainerText = Event.target.id.toString();
         let index = this.getCurrentIndex(inputField2ContainerText);
         let inputField2Component = document.getElementById("inputField2Component" + index);
@@ -451,7 +451,7 @@ class ChecklistContainer {
 
     handleJudgementDrop(Event) {
         Event.stopPropagation();
-        let sourceElement = Event.dataTransfer.getData("text/html");
+        let sourceElement = Event.dataTransfer.getData("text");
         let judgementContainerText = Event.target.id.toString();
         let index = this.getCurrentIndex(judgementContainerText);
         let judgementComponent = document.getElementById("judgementComponent" + index);
